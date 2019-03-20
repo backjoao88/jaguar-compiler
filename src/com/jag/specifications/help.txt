@@ -1,0 +1,25 @@
+-- Java folder
+
+C:\Program Files\Java\jdk-11.0.2\bin
+
+-- Command to compile this on Windows
+
+javac Lexer.java
+java Lexer inputs-examples/FILE.txt
+
+-- File .jflex that will be read by JFLEX
+
+C:\Users\João Paulo Back\Desktop\jaguar-compiler\jag-compiler\src\com\jag\specifications\LexerSpecification.jflex
+
+-- Folder that JFLEX will store the .java file.
+
+C:\Users\João Paulo Back\Desktop\jaguar-compiler\jag-compiler\src\com\jag\lexer
+
+-- Command to compile .cup file
+
+java -jar java-cup-11b.jar ../src/com/jag/specifications/GrammarSpecification.txt
+
+-- Directory where java-cup.jar is stored
+
+C:\Users\João Paulo Back\Desktop\jaguar-compiler\jag-compiler\libs
+

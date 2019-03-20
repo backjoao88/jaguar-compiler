@@ -1,0 +1,83 @@
+package com.jag.parser;
+
+	/* Terminais */
+
+terminal 
+
+IF, ABRIR_PAR, FECHAR_PAR, IDENTIFICADOR, ABRIR_BLOCO, FECHAR_BLOCO, OP_MENOR, OP_E, OP_MAIOR, OP_MAIORIGUAL, STRING, STRING_VAZIA, STRING_CHARAC, STRING_CHARAC_VAZIA, 
+OP_MENORIGUAL, OP_COMPARACAO, OP_NOT, OP_OU, INT, REAL, BOOL, CHARAC, VOID, STR, RETURN, FUNCTION, VIRGULA, TRUE, FALSE, PONTO, OP_ATRIBUICAO, CONSTANTE,
+OP_ADICAO, OP_SUBTRACAO, OP_DIV, OP_MULT, WHILE, FOR, IN, ELSE, ELIF, PRINT, INPUT;
+
+	/* Não Terminais */
+
+non terminal 
+
+Start, FuncDeclaration, Blocks, Block, IntegerLiteral, StrLiteral, CharacLiteral, BoolLiteral, Literal, FactorIntegerLiteral, RealLiteral ,
+IfStmt, ExpRelational, ExpRelationalOperators, ExpLogical, ExpLogicalOperators, HigherExp, FuncTypes, ReturnBlock, Types, Parameters, Parameter, ExpAddSub,
+ExpAddSubOperators, ExpMultDiv, ExpMultDivOperators, WhileStmt, ForStmt, ForTypes, ElseStmt, ElifStmt, AfterIfStmt, AtrFactor, InputStmt, InitializeVariable,
+PrintStmt, EmptyTypes ;
+
+	/* Declarações */
+
+Start ::= FuncDeclaration Start | /* î */ ;
+FuncDeclaration ::=  FUNCTION FuncTypes IDENTIFICADOR ABRIR_PAR Parameters FECHAR_PAR ABRIR_BLOCO Blocks ReturnBlock FECHAR_BLOCO ; 
+FuncTypes ::= Types | VOID ;
+Types ::= INT | REAL | BOOL | CHARAC | STR ;
+ReturnBlock ::= RETURN ExpLogical | /* î */ ;
+Parameters ::= Types IDENTIFICADOR Parameter | /* empty */;
+Parameter ::= VIRGULA Types IDENTIFICADOR Parameter | /* empty */ ;
+ForTypes ::= INT | /* empty */ ;
+EmptyTypes ::= Types | /* empty */ ; 
+
+	/* Blocos */
+
+Blocks ::= Block Blocks | /* î */ ;
+Block ::= IfStmt | EmptyTypes IDENTIFICADOR InitializeVariable | WhileStmt | ForStmt | InputStmt | PrintStmt;
+
+	/* Statments */
+
+IfStmt ::= IF ABRIR_PAR ExpLogical FECHAR_PAR ABRIR_BLOCO Blocks FECHAR_BLOCO AfterIfStmt ;
+AfterIfStmt ::= ElseStmt | ElifStmt | /* empty */ ; 
+ElseStmt ::= ELSE ABRIR_BLOCO Blocks FECHAR_BLOCO ; 
+ElifStmt ::= ELIF ABRIR_PAR ExpLogical FECHAR_PAR ABRIR_BLOCO Blocks FECHAR_BLOCO AfterIfStmt ;
+WhileStmt ::= WHILE ABRIR_PAR ExpLogical FECHAR_PAR ABRIR_BLOCO Blocks FECHAR_BLOCO;
+ForStmt ::= FOR ABRIR_PAR ForTypes IDENTIFICADOR IN IDENTIFICADOR FECHAR_PAR ABRIR_BLOCO Blocks FECHAR_BLOCO ;
+PrintStmt ::= PRINT ABRIR_PAR ExpLogical FECHAR_PAR ;
+InputStmt ::= INPUT ABRIR_PAR Parameters FECHAR_PAR ; 
+AtrFactor ::= PrintStmt | InputStmt | ExpLogical; 
+InitializeVariable ::= OP_ATRIBUICAO AtrFactor | /* empty */ ; 
+
+	/* Expressões */
+
+ExpLogical ::= ExpRelational ExpLogicalOperators ;
+ExpLogicalOperators ::= OP_E ExpLogical | 
+			OP_OU ExpLogical | /* î */ ;
+
+ExpRelational ::= ExpAddSub ExpRelationalOperators ;
+ExpRelationalOperators ::= OP_MENOR ExpRelational |
+			   OP_MAIOR ExpRelational |
+			   OP_MAIORIGUAL ExpRelational |
+			   OP_MENORIGUAL ExpRelational |
+			   OP_COMPARACAO ExpRelational | /* î */ ;
+
+ExpAddSub ::= ExpMultDiv ExpAddSubOperators ;
+ExpAddSubOperators ::= OP_ADICAO ExpAddSub 
+			 | OP_SUBTRACAO ExpAddSub
+			 | /* empty */;
+
+ExpMultDiv ::= HigherExp ExpMultDivOperators;
+ExpMultDivOperators ::= OP_MULT ExpMultDiv
+			   | OP_DIV ExpMultDiv
+			   | /* empty */;
+
+HigherExp ::= ABRIR_PAR ExpLogical FECHAR_PAR | OP_NOT HigherExp | IDENTIFICADOR | Literal;
+
+Literal ::= IntegerLiteral | StrLiteral | BoolLiteral | CharacLiteral ;
+IntegerLiteral ::= CONSTANTE FactorIntegerLiteral ;
+FactorIntegerLiteral ::= PONTO RealLiteral | /* empty */ ;
+RealLiteral ::= CONSTANTE;
+StrLiteral ::= STRING | STRING_VAZIA ;
+CharacLiteral ::= STRING_CHARAC | STRING_CHARAC_VAZIA ;
+BoolLiteral ::= TRUE | FALSE ;
+
+
