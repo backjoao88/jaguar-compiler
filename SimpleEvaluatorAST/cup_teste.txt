@@ -1,0 +1,20 @@
+package com.jag.parser;
+
+terminal Constante CONSTANTE;
+terminal OpAdicao OP_ADICAO;
+terminal OpSub OP_SUB;
+
+non terminal ExpSoma EXP_SOMA;
+non terminal ExpSub EXP_SUB;
+non terminal ExpSomaOperador EXP_SOMA_OPERADOR;
+non terminal ExpSubOperador EXP_SUB_OPERADOR;
+
+
+EXP_SOMA ::= EXP_SUB:exp_sub EXP_SOMA_OPERADOR:exp_soma_operador		{: RESULT = new ExpSoma(exp_sub, exp_soma_operador); :}
+EXP_SOMA_OPERADOR ::= OP_ADICAO EXP_SOMA:exp_soma | /* */ ;			{: RESULT = new ExpSomaOperador("+", exp_soma); :}
+
+
+EXP_SUB ::= CONSTANTE:const EXP_SUB_OPERADOR:exp_sub_operador;			{: RESULT = new ExpSub(const, exp_sub_operador); :}
+EXP_SUB_OPERADOR ::= OP_SUB EXP_SUB:exp_sub  | /* */;				{: RESULT = new ExpSubOperador("-", exp_sub); :}
+
+
