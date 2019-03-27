@@ -9,4 +9,15 @@ public class ExpSoma extends Node{
 		this.exp_sub = exp_sub;
 		this.exp_soma_operador = exp_soma_operador;
 	}
+	
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+	
+		builder.append(exp_sub);
+		builder.append(exp_soma_operador);
+		builder.append("\n");
+		
+		return builder.toString();
+	}
+	
 }
