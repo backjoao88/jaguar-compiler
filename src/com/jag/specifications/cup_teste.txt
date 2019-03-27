@@ -14,7 +14,7 @@ EXP_SOMA ::= EXP_SUB:exp_sub EXP_SOMA_OPERADOR:exp_soma_operador		{: RESULT = ne
 EXP_SOMA_OPERADOR ::= OP_ADICAO EXP_SOMA:exp_soma | /* */ 	        	{: RESULT = new Exp_Soma_Operador("+", exp_soma);  :} ;
 
 
-EXP_SUB ::= CONSTANTE:constante EXP_SUB_OPERADOR:exp_sub_operador		{: RESULT = new Exp_Sub(Integer, exp_sub_operador); :} ;
+EXP_SUB ::= CONSTANTE:constante EXP_SUB_OPERADOR:exp_sub_operador		{: RESULT = new Exp_Sub(constante, exp_sub_operador); :} ;
 EXP_SUB_OPERADOR ::= OP_SUB EXP_SUB:exp_sub  | /* */        			{: RESULT = new Exp_Sub_Operador("-", exp_sub); :} ;
 
 

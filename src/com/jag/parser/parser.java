@@ -6,6 +6,9 @@
 
 package com.jag.parser;
 
+import com.jag.ast.Constante;
+import com.jag.ast.ExpSub;
+import com.jag.ast.ExpSubOperador;
 
 /** CUP v0.11a beta 20060608 generated parser.
   * @version Wed Mar 27 11:07:57 BRT 2019
