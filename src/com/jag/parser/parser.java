@@ -122,7 +122,7 @@ class CUP$parser$actions {
           case 6: // EXP_SUB_OPERADOR ::= 
             {
               ExpSubOperador RESULT =null;
-		 RESULT = new ExpSubOperador("-", exp_sub); 
+		 RESULT = new ExpSubOperador(/*"-", exp_sub*/); 
               CUP$parser$result = parser.getSymbolFactory().newSymbol("EXP_SUB_OPERADOR",3, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -158,7 +158,7 @@ class CUP$parser$actions {
           case 3: // EXP_SOMA_OPERADOR ::= 
             {
               ExpSomaOperador RESULT =null;
-		 RESULT = new ExpSomaOperador("+", exp_soma);  
+		 RESULT = new ExpSomaOperador(/*"+", exp_soma*/);  
               CUP$parser$result = parser.getSymbolFactory().newSymbol("EXP_SOMA_OPERADOR",2, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
