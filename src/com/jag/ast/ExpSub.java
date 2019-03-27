@@ -1,8 +1,12 @@
 package com.jag.ast;
 
-public class ExpSub {
+public class ExpSub extends Node{
 
-	public ExpSub(Integer constante, ExpSubOperador exp_sub_operador) {
-		// TODO Auto-generated constructor stub
+	Integer constante = null;
+	Node exp_sub_operador = null;
+
+	public ExpSub(Integer constante, Node exp_sub_operador) {
+		this.constante = constante;
+		this.exp_sub_operador = exp_sub_operador;
 	}
 }

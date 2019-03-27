@@ -146,7 +146,7 @@ class CUP$parser$actions {
               Node RESULT =null;
 		int constanteleft = ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-1)).left;
 		int constanteright = ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-1)).right;
-		Integer constante = Integer.parseInt((String) ((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top-1)).value);
+		Integer constante = (Integer)((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top-1)).value;
 		int exp_sub_operadorleft = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).left;
 		int exp_sub_operadorright = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
 		Node exp_sub_operador = (Node)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;

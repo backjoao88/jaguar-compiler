@@ -1,8 +1,12 @@
 package com.jag.ast;
 
-public class ExpSoma{
+public class ExpSoma extends Node{
 
-	public ExpSoma(ExpSub exp_sub, ExpSomaOperador exp_soma_operador) {
-		// TODO Auto-generated constructor stub
+	Node exp_sub = null;
+	Node exp_soma_operador;
+
+	public ExpSoma(Node exp_sub, Node exp_soma_operador) {
+		this.exp_sub = exp_sub;
+		this.exp_soma_operador = exp_soma_operador;
 	}
 }
