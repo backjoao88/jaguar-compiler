@@ -6,6 +6,11 @@
 
 package com.jag.parser;
 
+import com.jag.ast.Constante;
+import com.jag.ast.ExpSoma;
+import com.jag.ast.ExpSomaOperador;
+import com.jag.ast.ExpSub;
+import com.jag.ast.ExpSubOperador;
 
 /** CUP v0.11a beta 20060608 generated parser.
   * @version Wed Mar 27 10:04:11 BRT 2019
@@ -141,7 +146,7 @@ class CUP$parser$actions {
               ExpSub RESULT =null;
 		int constleft = ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-1)).left;
 		int constright = ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-1)).right;
-		Constante const = (Constante)((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top-1)).value;
+		Constante constante = (Constante)((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top-1)).value;
 		int exp_sub_operadorleft = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).left;
 		int exp_sub_operadorright = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
 		ExpSubOperador exp_sub_operador = (ExpSubOperador)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
