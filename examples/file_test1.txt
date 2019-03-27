@@ -1,18 +1,1 @@
-function void main(){
-	if(x){
-		for(int x in colors){
-			int a
-			str nome = "Mathias"
-			print(nome)
-			nome = input()
-		}
-	}elif(x<y){
-		print("oloko")
-	}else{
-		print("jpb")
-	}
-
-	while(x<y){
-		print("hello world")
-	}
-}
+2+2

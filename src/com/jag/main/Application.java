@@ -9,7 +9,9 @@ public class Application {
 
 	public static void main(String[] args) {
 
-		final String DIRECTORY = "C:\\Users\\joao.back\\Desktop\\workspace\\jaguar-compiler\\examples\\";
+		//final String DIRECTORY = "C:\\Users\\joao.back\\Desktop\\workspace\\jaguar-compiler\\examples\\";
+		final String DIRECTORY = "C:\\Users\\mathias.schulz\\eclipse-workspace\\jaguar-compiler\\examples\\";
+		
 		final String FILE_NAME = "file_test1.txt";
 
 		try {
