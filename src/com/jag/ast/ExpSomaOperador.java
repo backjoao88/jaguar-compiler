@@ -12,9 +12,10 @@ public class ExpSomaOperador extends Node {
 
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append(op_adicao);
-		builder.append(exp_soma);
-		builder.append("\n");
+		//builder.append("\n[EXP-SOMA-OPERADOR]");
+		builder.append("[EXP-SOMA-OPERADOR]-->" + op_adicao);
+		builder.append("\n[EXP-SOMA-OPERADOR]-->" + exp_soma);
+		//builder.append("\n");
 		return builder.toString();
 	}
 

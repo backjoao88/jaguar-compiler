@@ -12,9 +12,10 @@ public class ExpSubOperador extends Node {
 
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append(op_sub);
-		builder.append(exp_sub);
-		builder.append("\n");
+		//builder.append("\n[EXP-SUB-OPERADOR]");
+		builder.append("[EXP-SUB-OPERADOR]-->" + op_sub);
+		builder.append("\n[EXP-SUB-OPERADOR]-->" + exp_sub);
+		//builder.append("\n");
 		return builder.toString();
 	}
 

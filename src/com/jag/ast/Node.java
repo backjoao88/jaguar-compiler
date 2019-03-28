@@ -4,8 +4,9 @@ public class Node {
 	
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("<null>");
-		builder.append("\n");
+		//builder.append("\n[NODE-VAZIO]");
+		builder.append("[NODE-VAZIO]--> null");
+		//builder.append("\n");
 		return builder.toString();
 	}
 

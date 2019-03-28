@@ -206,6 +206,7 @@ class CUP$parser$actions {
 					((java_cup.runtime.Symbol) CUP$parser$stack.peek()), RESULT);
 			
 			System.out.println(RESULT.toString());
+			
 		}
 			/* ACCEPT */
 		

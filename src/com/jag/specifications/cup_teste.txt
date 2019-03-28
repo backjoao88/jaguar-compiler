@@ -18,7 +18,7 @@ non terminal Node EXP_SUB_OPERADOR;
 
 start with EXP_SOMA;
 
-EXP_SOMA ::= EXP_SUB:exp_sub EXP_SOMA_OPERADOR:exp_soma_operador		{: RESULT = new ExpSoma(exp_sub, exp_soma_operador); :} ;
+EXP_SOMA ::= EXP_SUB:exp_sub EXP_SOMA_OPERADOR:exp_soma_operador		{: RESULT = new ExpSoma(exp_sub, exp_soma_operador):} ;
 EXP_SOMA_OPERADOR ::= OP_ADICAO EXP_SOMA:exp_soma	        			{: RESULT = new ExpSomaOperador("+", exp_soma);  :} ;
 EXP_SOMA_OPERADOR ::= /* */ 											{: RESULT = new Node();  :} ;
 
