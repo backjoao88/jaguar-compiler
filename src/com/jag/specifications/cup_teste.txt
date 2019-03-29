@@ -5,6 +5,16 @@ import com.jag.ast.ExpSomaOperador;
 import com.jag.ast.ExpSub;
 import com.jag.ast.ExpSubOperador;
 import com.jag.ast.Node;
+import java.util.HashMap;
+
+/* . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  */
+
+action code{:
+	HashMap<String, SymST> symbolTable = new HashMap<String, SymST>();
+:};
+
+
+/* . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  */
 
 
 terminal Integer CONSTANTE;
@@ -16,15 +26,18 @@ non terminal Node EXP_SUB;
 non terminal Node EXP_SOMA_OPERADOR;
 non terminal Node EXP_SUB_OPERADOR;
 
-start with EXP_SOMA;
+EXP_SOMA ::= EXP_SUB:exp_sub EXP_SOMA_OPERADOR:exp_soma_operador		{: RESULT = new ExpSoma(exp_sub, exp_soma_operador); :} ;
+EXP_SOMA_OPERADOR ::= OP_ADICAO EXP_SOMA:exp_soma	        		{: RESULT = new ExpSomaOperador("+", exp_soma);  :} ;
+EXP_SOMA_OPERADOR ::= /* */ 							{: RESULT = new Node();  :} ;
 
-EXP_SOMA ::= EXP_SUB:exp_sub EXP_SOMA_OPERADOR:exp_soma_operador		{: RESULT = new ExpSoma(exp_sub, exp_soma_operador):} ;
-EXP_SOMA_OPERADOR ::= OP_ADICAO EXP_SOMA:exp_soma	        			{: RESULT = new ExpSomaOperador("+", exp_soma);  :} ;
-EXP_SOMA_OPERADOR ::= /* */ 											{: RESULT = new Node();  :} ;
+EXP_SUB ::= CONSTANTE:constante EXP_SUB_OPERADOR:exp_sub_operador		{: RESULT = new ExpSub(constante, exp_sub_operador);
+	String lex = String.valueOf(constante);
+	SymST symST= new SymST(lex, sym.CONSTANTE);
+	symbolTable.put(lex, symST);
 
-EXP_SUB ::= CONSTANTE:constante EXP_SUB_OPERADOR:exp_sub_operador		{: RESULT = new ExpSub(constante, exp_sub_operador); :} ;
-EXP_SUB_OPERADOR ::= OP_SUB EXP_SUB:exp_sub  			     			{: RESULT = new ExpSubOperador("-", exp_sub); :} ;
-EXP_SUB_OPERADOR ::= /* */ 												{: RESULT = new Node();  :} ;
+:} ;
+EXP_SUB_OPERADOR ::= OP_SUB EXP_SUB:exp_sub  			     		{: RESULT = new ExpSubOperador("-", exp_sub); :} ;
+EXP_SUB_OPERADOR ::= /* */ 							{: RESULT = new Node();  :} ;
 
 
 

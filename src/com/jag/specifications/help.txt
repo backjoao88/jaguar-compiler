@@ -23,3 +23,8 @@ java -jar java-cup-11b.jar ../src/com/jag/specifications/GrammarSpecification.tx
 
 C:\Users\João Paulo Back\Desktop\jaguar-compiler\jag-compiler\libs
 
+cp -r /home/joaop/jaguar-compiler/src/com/jag/specifications/parser.java /home/joaop/jaguar-compiler/src/com/jag/parser/
+cp -r /home/joaop/jaguar-compiler/src/com/jag/specifications/sym.java /home/joaop/jaguar-compiler/src/com/jag/parser/
+
+
+
