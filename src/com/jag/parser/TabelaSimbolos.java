@@ -1,21 +1,33 @@
 package com.jag.parser;
 
 import java.util.HashMap;
+import java.util.Stack;
 
 public class TabelaSimbolos {
 
-	private HashMap<String, Simbolo> tabelaSimbolos = new HashMap<String, Simbolo>();
+	private Stack<HashMap<String, Simbolo>> tabelaSimbolos = new Stack<HashMap<String, Simbolo>>();
 
 	public void inserir(String key, Simbolo value) {
 		if (value != null) {
-			tabelaSimbolos.put(key, value);
+			tabelaSimbolos.peek().put(key, value);
 		}
 	}
 
 	public void mostrar() {
-		tabelaSimbolos.forEach((key, value) -> {
-			System.out.println("Key ->" + key + ", valor -> " + value);
-		});
+		for (int i = 0; i < tabelaSimbolos.size(); i++) {
+			System.out.println("Escopo: " + i);
+			tabelaSimbolos.get(i).forEach((key, value) -> {
+				System.out.println("Key ->" + key + ", valor -> " + value);
+			});
+		}
+	}
+
+	public void novoEscopo() {
+		tabelaSimbolos.push(new HashMap<String, Simbolo>());
+	}
+
+	public void limparEscopo() {
+		tabelaSimbolos.pop();
 	}
 
 }

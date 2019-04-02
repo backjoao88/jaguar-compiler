@@ -517,14 +517,6 @@ public class parser extends java_cup.runtime.lr_parser {
 		String tipoDadoAtual = null;
 		String tipoAtual = null;
 
-		public void aumentarEscopo() {
-			escopoAtual++;
-		}
-
-		public void diminuirEscopo() {
-			escopoAtual--;
-		}
-
 		private final parser parser;
 
 		/** Constructor */
@@ -566,7 +558,6 @@ public class parser extends java_cup.runtime.lr_parser {
 						((java_cup.runtime.Symbol) CUP$parser$stack.peek()), RESULT);
 			}
 				/* ACCEPT */
-			tabelaSimbolos.mostrar();
 				CUP$parser$parser.done_parsing();
 				return CUP$parser$result;
 
@@ -584,7 +575,7 @@ public class parser extends java_cup.runtime.lr_parser {
 			case 3: // NT$0 ::=
 			{
 				Object RESULT = null;
-				aumentarEscopo();
+				tabelaSimbolos.novoEscopo();
 				CUP$parser$result = parser.getSymbolFactory().newSymbol("NT$0", 38,
 						((java_cup.runtime.Symbol) CUP$parser$stack.peek()), RESULT);
 			}
@@ -597,7 +588,7 @@ public class parser extends java_cup.runtime.lr_parser {
 				Object RESULT = null;
 				// propagate RESULT from NT$0
 				RESULT = (Object) ((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top - 3)).value;
-				diminuirEscopo();
+				tabelaSimbolos.limparEscopo();
 				CUP$parser$result = parser.getSymbolFactory().newSymbol("FuncDeclaration", 1,
 						((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top - 10)),
 						((java_cup.runtime.Symbol) CUP$parser$stack.peek()), RESULT);
@@ -808,8 +799,7 @@ public class parser extends java_cup.runtime.lr_parser {
 				int idleft = ((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top - 2)).left;
 				int idright = ((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top - 2)).right;
 				Object id = (Object) ((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top - 2)).value;
-				tabelaSimbolos.inserir(String.valueOf(id),
-						new Simbolo(String.valueOf(id), tipoDadoAtual, tipoAtual, escopoAtual));
+				tabelaSimbolos.inserir(id.toString(), new Simbolo(id.toString(), tipoDadoAtual, tipoAtual));
 				CUP$parser$result = parser.getSymbolFactory().newSymbol("VarDeclaration", 37,
 						((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top - 3)),
 						((java_cup.runtime.Symbol) CUP$parser$stack.peek()), RESULT);
@@ -907,7 +897,7 @@ public class parser extends java_cup.runtime.lr_parser {
 			case 32: // NT$2 ::=
 			{
 				Object RESULT = null;
-				aumentarEscopo();
+				tabelaSimbolos.novoEscopo();
 				CUP$parser$result = parser.getSymbolFactory().newSymbol("NT$2", 40,
 						((java_cup.runtime.Symbol) CUP$parser$stack.peek()), RESULT);
 			}
@@ -918,7 +908,7 @@ public class parser extends java_cup.runtime.lr_parser {
 			{
 				Object RESULT = (Object) ((java_cup.runtime.Symbol) CUP$parser$stack
 						.elementAt(CUP$parser$top - 2)).value;
-				diminuirEscopo();
+				tabelaSimbolos.limparEscopo();
 				CUP$parser$result = parser.getSymbolFactory().newSymbol("NT$3", 41,
 						((java_cup.runtime.Symbol) CUP$parser$stack.peek()), RESULT);
 			}
@@ -974,7 +964,7 @@ public class parser extends java_cup.runtime.lr_parser {
 			case 38: // NT$4 ::=
 			{
 				Object RESULT = null;
-				aumentarEscopo();
+				tabelaSimbolos.novoEscopo();
 				CUP$parser$result = parser.getSymbolFactory().newSymbol("NT$4", 42,
 						((java_cup.runtime.Symbol) CUP$parser$stack.peek()), RESULT);
 			}
@@ -986,7 +976,7 @@ public class parser extends java_cup.runtime.lr_parser {
 				Object RESULT = null;
 				// propagate RESULT from NT$4
 				RESULT = (Object) ((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top - 2)).value;
-				diminuirEscopo();
+				tabelaSimbolos.limparEscopo();
 				CUP$parser$result = parser.getSymbolFactory().newSymbol("ElseStmt", 29,
 						((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top - 4)),
 						((java_cup.runtime.Symbol) CUP$parser$stack.peek()), RESULT);
@@ -997,7 +987,7 @@ public class parser extends java_cup.runtime.lr_parser {
 			case 40: // NT$5 ::=
 			{
 				Object RESULT = null;
-				aumentarEscopo();
+				tabelaSimbolos.novoEscopo();
 				CUP$parser$result = parser.getSymbolFactory().newSymbol("NT$5", 43,
 						((java_cup.runtime.Symbol) CUP$parser$stack.peek()), RESULT);
 			}
@@ -1008,7 +998,7 @@ public class parser extends java_cup.runtime.lr_parser {
 			{
 				Object RESULT = (Object) ((java_cup.runtime.Symbol) CUP$parser$stack
 						.elementAt(CUP$parser$top - 2)).value;
-				diminuirEscopo();
+				tabelaSimbolos.limparEscopo();
 				CUP$parser$result = parser.getSymbolFactory().newSymbol("NT$6", 44,
 						((java_cup.runtime.Symbol) CUP$parser$stack.peek()), RESULT);
 			}
@@ -1032,7 +1022,7 @@ public class parser extends java_cup.runtime.lr_parser {
 			case 43: // NT$7 ::=
 			{
 				Object RESULT = null;
-				aumentarEscopo();
+				tabelaSimbolos.novoEscopo();
 				CUP$parser$result = parser.getSymbolFactory().newSymbol("NT$7", 45,
 						((java_cup.runtime.Symbol) CUP$parser$stack.peek()), RESULT);
 			}
@@ -1045,7 +1035,7 @@ public class parser extends java_cup.runtime.lr_parser {
 				Object RESULT = null;
 				// propagate RESULT from NT$7
 				RESULT = (Object) ((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top - 2)).value;
-				diminuirEscopo();
+				tabelaSimbolos.limparEscopo();
 				CUP$parser$result = parser.getSymbolFactory().newSymbol("WhileStmt", 26,
 						((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top - 7)),
 						((java_cup.runtime.Symbol) CUP$parser$stack.peek()), RESULT);
@@ -1056,7 +1046,7 @@ public class parser extends java_cup.runtime.lr_parser {
 			case 45: // NT$8 ::=
 			{
 				Object RESULT = null;
-				aumentarEscopo();
+				tabelaSimbolos.novoEscopo();
 				CUP$parser$result = parser.getSymbolFactory().newSymbol("NT$8", 46,
 						((java_cup.runtime.Symbol) CUP$parser$stack.peek()), RESULT);
 			}
@@ -1069,7 +1059,7 @@ public class parser extends java_cup.runtime.lr_parser {
 				Object RESULT = null;
 				// propagate RESULT from NT$8
 				RESULT = (Object) ((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top - 2)).value;
-				diminuirEscopo();
+				tabelaSimbolos.limparEscopo();
 				CUP$parser$result = parser.getSymbolFactory().newSymbol("ForStmt", 27,
 						((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top - 10)),
 						((java_cup.runtime.Symbol) CUP$parser$stack.peek()), RESULT);

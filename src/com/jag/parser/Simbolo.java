@@ -5,14 +5,12 @@ public class Simbolo {
 	private String nome = null;
 	private String tipoDado = null;
 	private String tipo = null;
-	private int escopo = 0;
 
-	public Simbolo(String nome, String tipoDado, String tipo, int escopo) {
+	public Simbolo(String nome, String tipoDado, String tipo) {
 		super();
 		this.nome = nome;
 		this.tipoDado = tipoDado;
 		this.tipo = tipo;
-		this.escopo = escopo;
 	}
 
 	public String getNome() {
@@ -39,14 +37,6 @@ public class Simbolo {
 		this.tipo = tipo;
 	}
 
-	public int getEscopo() {
-		return escopo;
-	}
-
-	public void setEscopo(int escopo) {
-		this.escopo = escopo;
-	}
-
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -56,8 +46,6 @@ public class Simbolo {
 		builder.append(tipoDado);
 		builder.append(", tipo=");
 		builder.append(tipo);
-		builder.append(", escopo=");
-		builder.append(escopo);
 		builder.append("]");
 		return builder.toString();
 	}

@@ -1,4 +1,4 @@
-package com.jag.parser;
+﻿package com.jag.parser;
 
 /* ............................................................................................................................. */
 
@@ -9,14 +9,6 @@ action code {:
 	int escopoAtual = 0;
 	String tipoDadoAtual = null;
 	String tipoAtual = null;
-		
-	public void aumentarEscopo(){
-		escopoAtual++;
-	}
-	
-	public void diminuirEscopo(){
-		escopoAtual--;
-	}
 
 :}
 
@@ -42,7 +34,7 @@ PrintStmt, EmptyTypes, VarDeclaration ;
 	/* Declara��es */
 
 Start ::= FuncDeclaration Start | /* */ ;
-FuncDeclaration ::=  FUNCTION FuncTypes IDENTIFICADOR ABRIR_PAR Parameters FECHAR_PAR ABRIR_BLOCO {: aumentarEscopo(); :} Blocks ReturnBlock FECHAR_BLOCO {: diminuirEscopo(); :} ;
+FuncDeclaration ::=  FUNCTION FuncTypes IDENTIFICADOR ABRIR_PAR Parameters FECHAR_PAR ABRIR_BLOCO {: tabelaSimbolos.novoEscopo()(); :} Blocks ReturnBlock FECHAR_BLOCO {: tabelaSimbolos.limparEscopo(); :} ;
 
 
 FuncTypes ::= Types ;
@@ -61,7 +53,7 @@ Parameter ::= VIRGULA Types IDENTIFICADOR Parameter | /* empty */ ;
 ForTypes ::= INT | /* empty */ ;
 EmptyTypes ::= Types | /* empty */ ; 	
 
-VarDeclaration::= EmptyTypes IDENTIFICADOR:id {: tipoAtual = "IDENTIFICADOR"; :} InitializeVariable {: tabelaSimbolos.inserir(String.valueOf(id), new Simbolo(String.valueOf(id),tipoDadoAtual, tipoAtual, escopoAtual)); :}; 
+VarDeclaration::= EmptyTypes IDENTIFICADOR:id {: tipoAtual = "IDENTIFICADOR"; :} InitializeVariable {: tabelaSimbolos.inserir(id.toString(), new Simbolo(id.toString(), tipoDadoAtual, tipoAtual)); :}; 
 
 	/* Blocos */
 
@@ -80,12 +72,12 @@ Block ::= IfStmt |
 
 	/* Statments */
 
-IfStmt ::= IF ABRIR_PAR ExpLogical FECHAR_PAR ABRIR_BLOCO {: aumentarEscopo(); :} Blocks FECHAR_BLOCO {: diminuirEscopo(); :} AfterIfStmt ;
+IfStmt ::= IF ABRIR_PAR ExpLogical FECHAR_PAR ABRIR_BLOCO {: tabelaSimbolos.novoEscopo(); :} Blocks FECHAR_BLOCO {: tabelaSimbolos.limparEscopo(); :} AfterIfStmt ;
 AfterIfStmt ::= ElseStmt | ElifStmt | /* empty */ ; 
-ElseStmt ::= ELSE ABRIR_BLOCO {: aumentarEscopo(); :} Blocks FECHAR_BLOCO {: diminuirEscopo(); :} ; 
-ElifStmt ::= ELIF ABRIR_PAR ExpLogical FECHAR_PAR ABRIR_BLOCO {: aumentarEscopo(); :} Blocks FECHAR_BLOCO  {: diminuirEscopo(); :} AfterIfStmt ;
-WhileStmt ::= WHILE ABRIR_PAR ExpLogical FECHAR_PAR ABRIR_BLOCO {: aumentarEscopo(); :} Blocks FECHAR_BLOCO {: diminuirEscopo(); :}; 
-ForStmt ::= FOR ABRIR_PAR ForTypes IDENTIFICADOR IN IDENTIFICADOR FECHAR_PAR ABRIR_BLOCO {: aumentarEscopo(); :} Blocks FECHAR_BLOCO {: diminuirEscopo(); :} ;
+ElseStmt ::= ELSE ABRIR_BLOCO {: tabelaSimbolos.novoEscopo(); :} Blocks FECHAR_BLOCO {: tabelaSimbolos.limparEscopo(); :} ; 
+ElifStmt ::= ELIF ABRIR_PAR ExpLogical FECHAR_PAR ABRIR_BLOCO {: tabelaSimbolos.novoEscopo(); :} Blocks FECHAR_BLOCO  {: tabelaSimbolos.limparEscopo(); :} AfterIfStmt ;
+WhileStmt ::= WHILE ABRIR_PAR ExpLogical FECHAR_PAR ABRIR_BLOCO {: tabelaSimbolos.novoEscopo(); :} Blocks FECHAR_BLOCO {: tabelaSimbolos.limparEscopo(); :}; 
+ForStmt ::= FOR ABRIR_PAR ForTypes IDENTIFICADOR IN IDENTIFICADOR FECHAR_PAR ABRIR_BLOCO {: tabelaSimbolos.novoEscopo(); :} Blocks FECHAR_BLOCO {: tabelaSimbolos.limparEscopo(); :} ;
 PrintStmt ::= PRINT ABRIR_PAR ExpLogical FECHAR_PAR ;
 InputStmt ::= INPUT ABRIR_PAR Parameters FECHAR_PAR ; 
 AtrFactor ::= PrintStmt | InputStmt | ExpLogical; 
