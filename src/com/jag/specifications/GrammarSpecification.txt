@@ -8,7 +8,6 @@ action code {:
 
 	int escopoAtual = 0;
 	String tipoDadoAtual = null;
-	String tipoAtual = null;
 
 :}
 
@@ -34,17 +33,17 @@ PrintStmt, EmptyTypes, VarDeclaration ;
 	/* Declara��es */
 
 Start ::= FuncDeclaration Start | /* */ ;
-FuncDeclaration ::=  FUNCTION FuncTypes IDENTIFICADOR ABRIR_PAR Parameters FECHAR_PAR ABRIR_BLOCO {: tabelaSimbolos.novoEscopo(); :} Blocks ReturnBlock FECHAR_BLOCO {: tabelaSimbolos.limparEscopo(); :} ;
+FuncDeclaration ::=  FUNCTION FuncTypes IDENTIFICADOR:idFuncao ABRIR_PAR Parameters FECHAR_PAR ABRIR_BLOCO {: tabelaSimbolos.novoEscopo(); tabelaSimbolos.inserir(idFuncao.toString(), new FuncaoSimbolo(idFuncao.toString(), tipoDadoAtual));  :} Blocks ReturnBlock FECHAR_BLOCO {: tabelaSimbolos.limparEscopo(); :} ;
 
 
 FuncTypes ::= Types ;
-FuncTypes ::= VOID ;
+FuncTypes ::= VOID 				{: tipoDadoAtual = "VOID";    :};
 
-Types ::= 	INT					{: tipoDadoAtual = "INT";  :};
-Types ::= 	REAL				{: tipoDadoAtual = "REAL";  :};
-Types ::=	BOOL 				{: tipoDadoAtual = "BOOL";  :};
+Types ::= 	INT					{: tipoDadoAtual = "INT";     :};
+Types ::= 	REAL				{: tipoDadoAtual = "REAL";    :};
+Types ::=	BOOL 				{: tipoDadoAtual = "BOOL";    :};
 Types ::= 	CHARAC				{: tipoDadoAtual = "CHARAC";  :};
-Types ::= 	STR					{: tipoDadoAtual = "STR";  :};
+Types ::= 	STR					{: tipoDadoAtual = "STR";     :};
 
 
 ReturnBlock ::= RETURN ExpLogical | /* � */ ;
@@ -53,7 +52,7 @@ Parameter ::= VIRGULA Types IDENTIFICADOR Parameter | /* empty */ ;
 ForTypes ::= INT | /* empty */ ;
 EmptyTypes ::= Types | /* empty */ ; 	
 
-VarDeclaration::= EmptyTypes IDENTIFICADOR:id {: tipoAtual = "IDENTIFICADOR"; :} InitializeVariable {: tabelaSimbolos.inserir(id.toString(), new Simbolo(id.toString(), tipoDadoAtual, tipoAtual)); :}; 
+VarDeclaration::= EmptyTypes IDENTIFICADOR:id  InitializeVariable {: tabelaSimbolos.inserir(id.toString(), new VarSimbolo(id.toString(), tipoDadoAtual)); :}; 
 
 	/* Blocos */
 
