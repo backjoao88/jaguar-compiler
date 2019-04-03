@@ -9,7 +9,8 @@ public class Application {
 
 	public static void main(String[] args) {
 
-		final String DIRECTORY = "C:\\Users\\João Paulo Back\\jaguar-compiler\\examples\\";
+		final String DIRECTORY = "/home/joaop/jaguar-compiler/examples/"
+				+ "";
 		final String FILE_NAME = "file_test1.txt";
 
 		try {
@@ -18,9 +19,9 @@ public class Application {
 			p.parse();
 			System.out.println("Success!");
 		} catch (FileNotFoundException e1) {
-			System.err.println("Arquivo não encontrado: " + e1.getMessage() + "\n");
+			System.err.println("Arquivo nï¿½o encontrado: " + e1.getMessage() + "\n");
 		} catch (Exception e2) {
-			System.err.println("Exceção genérica. Erro: " + e2.getMessage()+ "\n");
+			System.err.println("Exceï¿½ï¿½o genï¿½rica. Erro: " + e2.getMessage()+ "\n");
 		} finally {
 			System.out.println("Fim do teste.");
 		}

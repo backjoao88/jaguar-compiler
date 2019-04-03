@@ -1,9 +1,3 @@
 function void main(){
-	int a 
-	str b
-	real c
-	if(x<y){
-		int k
-		real c
-	}
+	
 }
