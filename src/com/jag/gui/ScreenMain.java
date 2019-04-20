@@ -267,6 +267,7 @@ public class ScreenMain extends javax.swing.JFrame {
 
                 arq.close();
                 jTextArea_code.setText(arquivo);
+                jTextField_directory.setText(file.getPath());
             } catch (FileNotFoundException ex) {
                 // NÃO FOI POSSÍVEL LER O ARQUIVO TXT
                 Logger.getLogger(ScreenMain.class.getName()).log(Level.SEVERE, null, ex);

@@ -28,14 +28,17 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel_tittleScreen" min="-2" pref="379" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
-                              <Component id="jScrollPane1" min="-2" pref="352" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jLabel_tittleScreen" min="-2" pref="379" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="jScrollPane1" min="-2" pref="340" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="32767" attributes="0"/>
                               <Component id="jScrollPane2" min="-2" pref="352" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jLabel_text01" min="-2" max="-2" attributes="0"/>
@@ -64,7 +67,7 @@
               </Group>
               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jScrollPane1" pref="304" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" pref="296" max="32767" attributes="0"/>
                   <Component id="jScrollPane2" max="32767" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -92,9 +95,10 @@
       <SubComponents>
         <Component class="javax.swing.JTextArea" name="jTextArea_sintax">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="columns" type="int" value="20"/>
             <Property name="rows" type="int" value="5"/>
-            <Property name="text" type="java.lang.String" value="SINTAXE:&#xa;&#xa; - Fun&#xe7;&#xe3;o:&#xa;&#xa;function tipoDaFuncao nomeDaFuncao() {}&#xa;&#xa; - If:&#xa;&#xa;if(expressaoLogica) {}&#xa;if(expressaoLogica) {}elif(expressaoLogica) {}&#xa;if(expressaoLogica) {}elif(expressaoLogica) {}else {}&#xa;if(expressaoLogica) {}else {}&#xa;&#xa; - While:&#xa;&#xa;while(expressaoLogica) {}&#xa;&#xa; - For:&#xa;&#xa;for(tipoVariavel nomeVariavel in valorParada) {}&#xa;for(nomeVariavelJaCriada in valorParada) {}&#xa;&#xa; - Declara&#xe7;&#xe3;o de Vari&#xe1;veis:&#xa;&#xa;tipoVariavel nomeVariavel&#xa;tipoVariavel nomeVariavel = valorInicial&#xa;&#xa; - Tipos para Vari&#xe1;veis:&#xa;&#xa;real (Valores ponto flutuante)&#xa;int (Valores inteiros)&#xa;bool (Valores booleanos)&#xa;charac (Um caracter)&#xa;str (Uma string)&#xa;&#xa; - Apresentar no console:&#xa;&#xa;print(informacaoParaApresentar)&#xa;&#xa; - Entrada de dados no programa:&#xa;&#xa;input()&#xa;Ex: str nome = input()&#xa;&#xa; - Opera&#xe7;&#xf5;es booleanas:&#xa;&#xa;and (as duas express&#xf5;es l&#xf3;gicas precisam ser verdade)&#xa;or (as duas ou apenas uma express&#xe3;o l&#xf3;gica precisa ser verdade)"/>
+            <Property name="text" type="java.lang.String" value="SINTAXE DA LINGUAGEM:&#xa;&#xa; - Fun&#xe7;&#xe3;o:&#xa;function tipoDaFuncao nomeDaFuncao() {}&#xa;&#xa; - If:&#xa;if(expressaoLogica) {}&#xa;if(expressaoLogica) {}elif(expressaoLogica) {}&#xa;if(expressaoLogica) {}elif(expressaoLogica) {}else {}&#xa;if(expressaoLogica) {}else {}&#xa;&#xa; - While:&#xa;while(expressaoLogica) {}&#xa;&#xa; - For:&#xa;for(tipoVariavel nomeVariavel in valorParada) {}&#xa;for(nomeVariavelJaCriada in valorParada) {}&#xa;&#xa; - Declara&#xe7;&#xe3;o de Vari&#xe1;veis:&#xa;tipoVariavel nomeVariavel&#xa;tipoVariavel nomeVariavel = valorInicial&#xa;&#xa; - Tipos para Vari&#xe1;veis:&#xa;real       =&gt; Valores ponto flutuante&#xa;int          =&gt;Valores inteiros&#xa;bool      =&gt; Valores booleanos&#xa;charac =&gt; Um caracter&#xa;str        =&gt; Uma string&#xa;&#xa; - Apresentar no console:&#xa;print(informacaoParaApresentar)&#xa;&#xa; - Entrada de dados no programa:&#xa;input()&#xa;&#xa; - Opera&#xe7;&#xf5;es booleanas:&#xa;and&#xa;  -&gt; As duas express&#xf5;es l&#xf3;gicas precisam ser verdade&#xa;or&#xa;  -&gt; As duas ou apenas uma express&#xe3;o l&#xf3;gica&#xa;precisa ser verdade"/>
           </Properties>
         </Component>
       </SubComponents>
@@ -124,6 +128,7 @@
       <SubComponents>
         <Component class="javax.swing.JTextArea" name="jTextArea_example">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="columns" type="int" value="20"/>
             <Property name="rows" type="int" value="5"/>
             <Property name="text" type="java.lang.String" value="function void main(){&#xa;&#x9;if(x){&#xa;&#x9;&#x9;for(int x in colors){&#xa;&#x9;&#x9;&#x9;int a&#xa;&#x9;&#x9;&#x9;str nome = &quot;Mathias&quot;&#xa;&#x9;&#x9;&#x9;print(nome)&#xa;&#x9;&#x9;&#x9;nome = input()&#xa;&#x9;&#x9;}&#xa;&#x9;}elif(x&lt;y){&#xa;&#x9;&#x9;print(&quot;oloko&quot;)&#xa;&#x9;}else{&#xa;&#x9;&#x9;print(&quot;jpb&quot;)&#xa;&#x9;}&#xa;&#xa;&#x9;while(x&lt;y){&#xa;&#x9;&#x9;print(&quot;hello world&quot;)&#xa;&#x9;}&#xa;}"/>

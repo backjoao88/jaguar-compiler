@@ -41,9 +41,10 @@ public class ScreenLanguageSintax extends javax.swing.JFrame {
         jLabel_tittleScreen.setFont(new java.awt.Font("Umpush", 3, 48)); // NOI18N
         jLabel_tittleScreen.setText("Jaguar Compiler");
 
+        jTextArea_sintax.setEditable(false);
         jTextArea_sintax.setColumns(20);
         jTextArea_sintax.setRows(5);
-        jTextArea_sintax.setText("SINTAXE:\n\n - Função:\n\nfunction tipoDaFuncao nomeDaFuncao() {}\n\n - If:\n\nif(expressaoLogica) {}\nif(expressaoLogica) {}elif(expressaoLogica) {}\nif(expressaoLogica) {}elif(expressaoLogica) {}else {}\nif(expressaoLogica) {}else {}\n\n - While:\n\nwhile(expressaoLogica) {}\n\n - For:\n\nfor(tipoVariavel nomeVariavel in valorParada) {}\nfor(nomeVariavelJaCriada in valorParada) {}\n\n - Declaração de Variáveis:\n\ntipoVariavel nomeVariavel\ntipoVariavel nomeVariavel = valorInicial\n\n - Tipos para Variáveis:\n\nreal (Valores ponto flutuante)\nint (Valores inteiros)\nbool (Valores booleanos)\ncharac (Um caracter)\nstr (Uma string)\n\n - Apresentar no console:\n\nprint(informacaoParaApresentar)\n\n - Entrada de dados no programa:\n\ninput()\nEx: str nome = input()\n\n - Operações booleanas:\n\nand (as duas expressões lógicas precisam ser verdade)\nor (as duas ou apenas uma expressão lógica precisa ser verdade)");
+        jTextArea_sintax.setText("SINTAXE DA LINGUAGEM:\n\n - Função:\nfunction tipoDaFuncao nomeDaFuncao() {}\n\n - If:\nif(expressaoLogica) {}\nif(expressaoLogica) {}elif(expressaoLogica) {}\nif(expressaoLogica) {}elif(expressaoLogica) {}else {}\nif(expressaoLogica) {}else {}\n\n - While:\nwhile(expressaoLogica) {}\n\n - For:\nfor(tipoVariavel nomeVariavel in valorParada) {}\nfor(nomeVariavelJaCriada in valorParada) {}\n\n - Declaração de Variáveis:\ntipoVariavel nomeVariavel\ntipoVariavel nomeVariavel = valorInicial\n\n - Tipos para Variáveis:\nreal       => Valores ponto flutuante\nint          =>Valores inteiros\nbool      => Valores booleanos\ncharac => Um caracter\nstr        => Uma string\n\n - Apresentar no console:\nprint(informacaoParaApresentar)\n\n - Entrada de dados no programa:\ninput()\n\n - Operações booleanas:\nand\n  -> As duas expressões lógicas precisam ser verdade\nor\n  -> As duas ou apenas uma expressão lógica\nprecisa ser verdade");
         jScrollPane1.setViewportView(jTextArea_sintax);
 
         jLabel_text01.setFont(new java.awt.Font("Umpush", 0, 12)); // NOI18N
@@ -52,6 +53,7 @@ public class ScreenLanguageSintax extends javax.swing.JFrame {
         jLabel_text02.setFont(new java.awt.Font("Umpush", 0, 12)); // NOI18N
         jLabel_text02.setText("Language Example:");
 
+        jTextArea_example.setEditable(false);
         jTextArea_example.setColumns(20);
         jTextArea_example.setRows(5);
         jTextArea_example.setText("function void main(){\n\tif(x){\n\t\tfor(int x in colors){\n\t\t\tint a\n\t\t\tstr nome = \"Mathias\"\n\t\t\tprint(nome)\n\t\t\tnome = input()\n\t\t}\n\t}elif(x<y){\n\t\tprint(\"oloko\")\n\t}else{\n\t\tprint(\"jpb\")\n\t}\n\n\twhile(x<y){\n\t\tprint(\"hello world\")\n\t}\n}");
@@ -74,12 +76,14 @@ public class ScreenLanguageSintax extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel_tittleScreen, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addComponent(jLabel_tittleScreen, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, Short.MAX_VALUE)
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel_text01)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -101,7 +105,7 @@ public class ScreenLanguageSintax extends javax.swing.JFrame {
                     .addComponent(jLabel_text02))
                 .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE)
                     .addComponent(jScrollPane2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton_mainMenu)
