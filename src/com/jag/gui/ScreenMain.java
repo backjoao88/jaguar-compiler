@@ -210,12 +210,13 @@ public class ScreenMain extends javax.swing.JFrame {
                 parser p = new parser(new Lexer(new FileReader(DIRECTORY_AND_NAME)));
                 p.parse();
                 System.out.println("Success!");
+                JOptionPane.showMessageDialog(null, "Análise Léxica e Sintática Realizadas com Sucesso! ");
             } catch (FileNotFoundException e1) {
                 System.err.println("Arquivo não encontrado: " + e1.getMessage() + "\n");
+                JOptionPane.showMessageDialog(null, "Arquivo não encontrado: " + e1.getMessage() + "\n");
             } catch (Exception e2) {
                 System.err.println("Exceção genérica. Erro: " + e2.getMessage() + "\n");
-            } finally {
-                System.out.println("Fim do teste.");
+                JOptionPane.showMessageDialog(null, "Exceção genérica. Erro: " + e2.getMessage() + "\n");
             }
 
             // DELETO O ARQUIVO TXT
