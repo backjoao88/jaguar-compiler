@@ -44,7 +44,7 @@ public class ScreenLanguageSintax extends javax.swing.JFrame {
         jTextArea_sintax.setEditable(false);
         jTextArea_sintax.setColumns(20);
         jTextArea_sintax.setRows(5);
-        jTextArea_sintax.setText("SINTAXE DA LINGUAGEM:\n\n - Função:\nfunction tipoDaFuncao nomeDaFuncao() {}\n\n - If:\nif(expressaoLogica) {}\nif(expressaoLogica) {}elif(expressaoLogica) {}\nif(expressaoLogica) {}elif(expressaoLogica) {}else {}\nif(expressaoLogica) {}else {}\n\n - While:\nwhile(expressaoLogica) {}\n\n - For:\nfor(tipoVariavel nomeVariavel in valorParada) {}\nfor(nomeVariavelJaCriada in valorParada) {}\n\n - Declaração de Variáveis:\ntipoVariavel nomeVariavel\ntipoVariavel nomeVariavel = valorInicial\n\n - Tipos para Variáveis:\nreal       => Valores ponto flutuante\nint          =>Valores inteiros\nbool      => Valores booleanos\ncharac => Um caracter\nstr        => Uma string\n\n - Apresentar no console:\nprint(informacaoParaApresentar)\n\n - Entrada de dados no programa:\ninput()\n\n - Operações booleanas:\nand\n  -> As duas expressões lógicas precisam ser verdade\nor\n  -> As duas ou apenas uma expressão lógica\nprecisa ser verdade");
+        jTextArea_sintax.setText("SINTAXE DA LINGUAGEM:\n - Função:\nfunction tipoDaFuncao nomeDaFuncao() {}\n\n - If:\nif(expressaoLogica) {}\nif(expressaoLogica) {}elif(expressaoLogica) {}\nif(expressaoLogica) {}elif(expressaoLogica) {}else {}\nif(expressaoLogica) {}else {}\n\n - While:\nwhile(expressaoLogica) {}\n\n - For:\nfor(tipoVariavel nomeVariavel in valorParada) {}\nfor(nomeVariavelJaCriada in valorParada) {}\n\n - Declaração de Variáveis:\ntipoVariavel nomeVariavel\ntipoVariavel nomeVariavel = valorInicial\n\n - Tipos para Variáveis:\nreal       => Valores ponto flutuante\nint          =>Valores inteiros\nbool      => Valores booleanos\ncharac => Um caracter\nstr        => Uma string\n\n - Apresentar no console:\nprint(informacaoParaApresentar)\n\n - Entrada de dados no programa:\ninput()\n\n - Operações booleanas:\nand\n  -> As duas expressões lógicas precisam ser verdade\nor\n  -> As duas ou apenas uma expressão lógica\nprecisa ser verdade");
         jScrollPane1.setViewportView(jTextArea_sintax);
 
         jLabel_text01.setFont(new java.awt.Font("Umpush", 0, 12)); // NOI18N
@@ -56,7 +56,7 @@ public class ScreenLanguageSintax extends javax.swing.JFrame {
         jTextArea_example.setEditable(false);
         jTextArea_example.setColumns(20);
         jTextArea_example.setRows(5);
-        jTextArea_example.setText("function void main(){\n\tif(x){\n\t\tfor(int x in colors){\n\t\t\tint a\n\t\t\tstr nome = \"Mathias\"\n\t\t\tprint(nome)\n\t\t\tnome = input()\n\t\t}\n\t}elif(x<y){\n\t\tprint(\"oloko\")\n\t}else{\n\t\tprint(\"jpb\")\n\t}\n\n\twhile(x<y){\n\t\tprint(\"hello world\")\n\t}\n}");
+        jTextArea_example.setText("function void main(){\n\n    int x = input()\n    real num1 = input()\n    real num2 = input()\n\n    if(x){\n        int valor = 10\n        for(int i in valor){\n            str nome = \"\"\n            print(\"Informe um nome: \")\n            nome = input()\n        }\n\n    }elif(num1 > num2){\n        print(\"Primeiro numero maior! \")\n\n    }else{\n        print(\"Segundo numero maior!\")\n\n    }\n\n    while(num1 < num2){\n        print(\"Numero 1 menor que numero 2\")\n    }\n    print(\"Numero 1 maior que numero 2\")\n}");
         jScrollPane2.setViewportView(jTextArea_example);
 
         jButton_mainMenu.setFont(new java.awt.Font("Umpush", 0, 12)); // NOI18N
@@ -75,23 +75,21 @@ public class ScreenLanguageSintax extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel_tittleScreen, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, Short.MAX_VALUE)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel_tittleScreen, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel_text01)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 255, Short.MAX_VALUE)
                         .addComponent(jLabel_text02)
                         .addGap(255, 255, 255))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton_mainMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButton_mainMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
