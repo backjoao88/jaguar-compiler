@@ -1,0 +1,45 @@
+SINTAXE DA LINGUAGEM:
+
+ - Função:
+function tipoDaFuncao nomeDaFuncao() {}
+
+ - If:
+if(expressaoLogica) {}
+if(expressaoLogica) {}elif(expressaoLogica) {}
+if(expressaoLogica) {}elif(expressaoLogica) {}else {}
+if(expressaoLogica) {}else {}
+
+ - While:
+while(expressaoLogica) {}
+
+ - For:
+for(tipoVariavel nomeVariavel in valorParada) {}
+for(nomeVariavelJaCriada in valorParada) {}
+
+ - Declaração de Variáveis:
+tipoVariavel nomeVariavel
+tipoVariavel nomeVariavel = valorInicial
+
+ - Tipos para Variáveis:
+real       => Valores ponto flutuante
+int          =>Valores inteiros
+bool      => Valores booleanos
+charac => Um caracter
+str        => Uma string
+
+ - Apresentar no console:
+print(informacaoParaApresentar)
+
+ - Entrada de dados no programa:
+input()
+
+ - Operações booleanas:
+and
+  -> As duas expressões lógicas precisam ser verdade
+or
+  -> As duas ou apenas uma expressão lógica
+precisa ser verdade
+
+
+
+

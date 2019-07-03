@@ -1,18 +1,27 @@
 function void main(){
-	if(x){
-		for(int x in colors){
-			int a
-			str nome = "Mathias"
-			print(nome)
-			nome = input()
-		}
-	}elif(x<y){
-		print("oloko")
-	}else{
-		print("jpb")
-	}
 
-	while(x<y){
-		print("hello world")
-	}
+    int x = input()
+    real num1 = input()
+    real num2 = input()
+
+    if(x){
+        int valor = 10
+        for(int i in valor){
+            str nome = ""
+            print("Informe um nome: ")
+            nome = input()
+        }
+
+    }elif(num1 > num2){
+        print("Primeiro numero maior! ")
+
+    }else{
+        print("Segundo numero maior!")
+
+    }
+
+    while(num1 < num2){
+        print("Numero 1 menor que numero 2")
+    }
+    print("Numero 1 maior que numero 2")
 }
